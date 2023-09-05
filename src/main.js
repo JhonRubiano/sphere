@@ -97,6 +97,7 @@ tl.fromTo(mesh.scale,
 )
 tl.fromTo('.title',{opacity:0},{opacity:1})
 
+
 //Mouse Animation Color
 let mouseDown = false
 let rgb = [];//three values red,green, blue

@@ -1,10 +1,12 @@
 body {
   margin: 0;
 }
+
 body,html{
   overflow-x: hidden;
   font-family: 'UnifrakturMaguntia', cursive;
 }
+
 *{
   margin: 0;
   padding: 0;
@@ -29,12 +31,14 @@ nav{
   display: flex;
   justify-content: center;
 }
+
 nav a{
   text-decoration: none;
   color: white;
   font-size: 5rem;
   font-weight: bold;
 }
+
 nav ul{
   font-family: 'Grenze Gotisch', cursive;
   list-style: none;
@@ -42,6 +46,7 @@ nav ul{
   gap: 4rem;
   font-size: 1.5rem;
 }
+
 .title{
   font-family: 'Grenze Gotisch', cursive;
   text-align: center;
