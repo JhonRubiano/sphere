@@ -101,13 +101,13 @@ tl.fromTo('.title',{opacity:0},{opacity:1})
 //Mouse Animation Color
 let mouseDown = false
 let rgb = [];//three values red,green, blue
-window.addEventListener('mousedown',()=> (mouseDown = true))
-window.addEventListener('mouseup',()=> (mouseDown = false))
-window.addEventListener('mousemove',(event)=>{
+
+const colorTrigger = (event) => {
+  const eventDispatcher = (event.type === 'touchmove') ? event.touches[0] : event
   if(mouseDown){
     rgb = [
-      Math.round( (event.pageX / sizes.width) * 255 ),
-      Math.round( (event.pageY / sizes.height) * 255 ),
+      Math.round( (eventDispatcher.pageX / sizes.width) * 255 ),
+      Math.round( (eventDispatcher.pageY / sizes.height) * 255 ),
       200
     ]
     let newColor = new THREE.Color(`rgb(${rgb.join(',')})`)
@@ -117,4 +117,11 @@ window.addEventListener('mousemove',(event)=>{
       b:newColor.b
     })
   }
-})
+}
+
+window.addEventListener('mousedown',()=> (mouseDown = true))
+window.addEventListener('mouseup',()=> (mouseDown = false))
+window.addEventListener('touchstart',()=> (mouseDown = true))
+window.addEventListener('touchcancel',()=> (mouseDown = false))
+window.addEventListener('mousemove',colorTrigger,false)
+window.addEventListener('touchmove',colorTrigger,false)
